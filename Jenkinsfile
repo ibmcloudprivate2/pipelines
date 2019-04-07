@@ -1,9 +1,22 @@
 pipeline {
   agent any
+  parameters {
+    choice(name: 'env',
+      choices: 'dev\ntest\nprod\ndr',
+      description: 'What door do you choose?')
+    string(name: 'user',
+      defaultValue: 'user',
+      description: 'Do the funky chicken!')
+    password(name: 'password',
+      description: 'password to remote host')
+  }  
   stages {
     stage('backupfiles') {
       steps {
         sh 'echo backupfiles '
+        sh "echo ${params.env}"
+        sh "echo ${params.user}"
+        sh "echo ${params.password}"
       }
     }
     stage('copyfiles') {
