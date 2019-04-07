@@ -3,7 +3,7 @@ pipeline {
   parameters {
     choice(name: 'env',
       choices: 'dev\ntest\nprod\ndr',
-      description: 'What door do you choose?')
+      description: 'target env:')
     string(name: 'host',
       description: 'remote host IP')
     string(name: 'user',
