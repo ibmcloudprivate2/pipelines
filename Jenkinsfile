@@ -5,12 +5,12 @@ pipeline {
       choices: 'dev\ntest\nprod\ndr',
       description: 'What door do you choose?')
     string(name: 'host',
-      description: 'Specify remote host IP')
+      description: 'remote host IP')
     string(name: 'user',
       defaultValue: 'user',
-      description: 'Do the funky chicken!')
+      description: 'remote host user')
     password(name: 'password',
-      description: 'password to remote host')
+      description: 'remote host password')
   }  
   stages {
     stage('backupfiles') {
