@@ -14,9 +14,9 @@ pipeline {
     stage('backupfiles') {
       steps {
         sh 'echo backupfiles '
-        sh "echo ${params.env}"
-        sh "echo ${params.user}"
-        sh "echo ${params.password}"
+        sh "echo env: ${params.env}"
+        sh "echo user: ${params.user}"
+        sh "echo pw: ${params.password}"
       }
     }
     stage('copyfiles') {
