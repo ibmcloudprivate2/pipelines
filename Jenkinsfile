@@ -2,7 +2,8 @@ pipeline {
   agent any
   parameters {
     choice(name: 'env',
-      choices: 'dev\ntest\nprod\ndr',
+      choices: 'dry-run\ndev\ntest\nprod\ndr',
+      defaultValue: 'dry-run',
       description: 'target env:')
     string(name: 'host',
       description: 'remote host IP')
