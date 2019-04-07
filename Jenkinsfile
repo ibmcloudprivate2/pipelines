@@ -4,6 +4,8 @@ pipeline {
     choice(name: 'env',
       choices: 'dev\ntest\nprod\ndr',
       description: 'What door do you choose?')
+    string(name: 'host',
+      description: 'Specify remote host IP')
     string(name: 'user',
       defaultValue: 'user',
       description: 'Do the funky chicken!')
@@ -15,6 +17,7 @@ pipeline {
       steps {
         sh 'echo backupfiles '
         sh "echo env: ${params.env}"
+        sh "echo host: ${params.host}"
         sh "echo user: ${params.user}"
         sh "echo pw: ${params.password}"
       }
