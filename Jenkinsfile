@@ -5,6 +5,7 @@ pipeline {
       choices: 'dry-run\ndev\ntest\nprod\ndr',
       description: 'target env:')
     string(name: 'host',
+      defaultValue: 'host',
       description: 'remote host IP')
     string(name: 'user',
       defaultValue: 'user',
