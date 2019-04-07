@@ -3,7 +3,6 @@ pipeline {
   parameters {
     choice(name: 'env',
       choices: 'dry-run\ndev\ntest\nprod\ndr',
-      defaultValue: 'dry-run',
       description: 'target env:')
     string(name: 'host',
       description: 'remote host IP')
