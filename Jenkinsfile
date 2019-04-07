@@ -57,7 +57,7 @@ pipeline {
         }
       }
     }
-    stage('') {
+    stage('end') {
       steps {
         sh 'echo pipeline-completed'
       }
