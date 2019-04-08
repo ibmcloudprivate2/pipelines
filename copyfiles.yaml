@@ -1,0 +1,16 @@
+---
+- hosts: remoteserver
+  remote_user: root
+  tasks:
+    - name: test connection
+      ping:
+      remote_user: root
+    - name: Copy a file in remote server Web.sitemap file into place, backing up the original if it differs from the copied version
+      copy:
+        src: /boxfolder/Web.sitemap
+        dest: /site/Web.sitemap
+        owner: root
+        group: root
+        mode: 0644
+        backup: yes  
+        remote_src: yes
