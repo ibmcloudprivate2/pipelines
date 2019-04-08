@@ -12,36 +12,46 @@ parser.add_argument('aspxFile', type=str, help='the aspx file')
 parser.add_argument('domain', type=str, help='the domain name to be matched')
 parser.add_argument('name', type=str, help='the name to be matched')
 
-args = parser.parse_args()
+try:
+    args = parser.parse_args()
 
-aspxfile = args.aspxFile
-domain = args.domain 
-name = args.name 
-print("name : ",name)
+    aspxfile = args.aspxFile
+    domain = args.domain 
+    name = args.name 
+    print("name : ",name)
 
-with open(aspxfile) as fp:
-    soup = BeautifulSoup(fp)
+    with open(aspxfile) as fp:
+        soup = BeautifulSoup(fp)
 
-# print(soup.prettify())
+    # print(soup.prettify())
 
-foundDomain = False
-foundName = False
+    foundDomain = False
+    foundName = False
 
-for href in soup.find_all('a'):
-    print(href)
-    attrs = href["href"].split("?")
-    print(attrs)
-    if(len(attrs) == 2 and domain == attrs[1]):
-        foundDomain = True
-    if(name == href.contents[0]):
-        foundName = True
-    print(href.contents[0])
+    for href in soup.find_all('a'):
+        print(href)
+        attrs = href["href"].split("?")
+        print(attrs)
+        if(len(attrs) == 2 and domain == attrs[1]):
+            foundDomain = True
+        if(name == href.contents[0]):
+            foundName = True
+        print(href.contents[0])
+        if(foundDomain and foundName):
+            print("found domain and name")
+            fp.close()
+            break;
+    
+
+except Exception as e:
+        print(e)
+finally:
+    fp.close()
     if(foundDomain and foundName):
-        print("found domain and name")
-        fp.close()
+        print("match found for {0} and {1}".format(domain, name))
         sys.exit(0)
-
-fp.close()
-sys.exit(1)
+    else:
+        print("no match found for {0} and {1}".format(domain, name))
+        sys.exit(1)
 
     
