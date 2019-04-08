@@ -18,3 +18,7 @@ or
 ```
 python3.7 aspx.py ./uc01/StaffDirectory.aspx "Domain=d1" "domain 1"
 ```
+
+# Resource
+
+- [create ssh key](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-centos7) to remote server
