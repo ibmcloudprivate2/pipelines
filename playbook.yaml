@@ -1,0 +1,37 @@
+---
+- hosts: remoteserver
+  remote_user: root
+  tasks:
+    - name: test connection
+      ping:
+      remote_user: root
+    - name: Copy a local client StaffDirectory.aspx file into place, backing up the original if it differs from the copied version
+      copy:
+        src: ./uc01/StaffDirectory.aspx
+        dest: /site/StaffDirectory.aspx
+        owner: root
+        group: root
+        mode: 0644
+        backup: yes
+    - name: Copy a file in remote server Web.sitemap file into place, backing up the original if it differs from the copied version
+      copy:
+        src: /boxfolder/Web.sitemap
+        dest: /site/Web.sitemap
+        owner: root
+        group: root
+        mode: 0644
+        backup: yes  
+        remote_src: yes
+    
+
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name : Test validation aspx script on local client - positive
+      command : 'python3.7 aspx.py ./uc01/StaffDirectory.aspx "Domain=d1" "domain 1"'    
+    - name : Test validation aspx script on local client - negative
+      command : 'python3.7 aspx.py ./uc01/StaffDirectory.aspx "Domain=Not d1" "domain 1"'    
+    - name : Test validation sitemap script on local client - positive
+      command : 'python3.7 sitemap.py ./uc01/Web.sitemap "directory22" "desc directory22"'    
+    - name : Test validation sitemap script on local client - negative
+      command : 'python3.7 sitemap.py ./uc01/Web.sitemap "Not directory22" "desc directory22"'    
