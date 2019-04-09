@@ -26,6 +26,13 @@ it will make a copy of the file from source folder to backup folder and rename i
 python3.7 bkupfiles.py "./uc01/" "./uc01/backup/" "StaffDirectory.aspx,Web.sitemap"
 ```
 
+### rollback files 
+rollback files in source folder to destination folder where files with "_YYYYMMDD" are removed from filename based on today's date
+
+```
+python3.7 rollbkfiles.py "./uc01/backup/" "./uc01/rollback/" "StaffDirectory_20190409.aspx,Web_20190409.sitemap"
+```
+
 # Resource
 
 - [create ssh key](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-centos7) to remote server
