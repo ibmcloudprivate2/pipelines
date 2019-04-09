@@ -35,9 +35,23 @@ python3.7 rollbkfiles.py "./uc01/backup/" "./uc01/rollback/" "StaffDirectory_201
 
 # Resource
 
+- [python packaging](https://python-packaging.readthedocs.io/en/latest/minimal.html)
 - [create ssh key](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-centos7) to remote server
 - [Distributing a Python command line](https://gehrcke.de/2014/02/distributing-a-python-command-line-application/) application
+- [pyfiglet](https://github.com/pwaller/pyfiglet)
+- [termcolor](https://pypi.org/project/termcolor/)
+- [colorama](https://pypi.org/project/colorama/)
+- [six](https://pypi.org/project/six/)
+- [pytest](https://docs.pytest.org/en/latest/)
+- [pyconfigstore](https://pypi.org/project/pyconfig/)
+- [Building Beautiful Command Line Interfaces](https://codeburst.io/building-beautiful-command-line-interfaces-with-python-26c7e1bb54df) with Python
 
+## CLI tools
+- [click](https://palletsprojects.com/p/click/)
+- [cement](https://docs.builtoncement.com/)
+- [Docopt](http://docopt.org/)
+- [PyInquirer](https://github.com/CITGuru/PyInquirer)
+  
 ## deploy python app to offline server (air-gap)
 
 to do that, [package python project](https://www.digitalocean.com/community/tutorials/how-to-package-and-distribute-python-applications) as wheels, copy the wheels to server and execute pip install
