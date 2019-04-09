@@ -41,8 +41,6 @@ try:
         print(href.contents[0])
         if(foundDomain and foundName):
             print("found domain and name")
-            if fp is not None:
-                fp.close()
             break;
     
 
