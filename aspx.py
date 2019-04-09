@@ -20,6 +20,8 @@ try:
     name = args.name 
     print("name : ",name)
 
+    fp = None
+
     with open(aspxfile) as fp:
         soup = BeautifulSoup(fp)
 
@@ -39,7 +41,8 @@ try:
         print(href.contents[0])
         if(foundDomain and foundName):
             print("found domain and name")
-            fp.close()
+            if fp is not None:
+                fp.close()
             break;
     
 
