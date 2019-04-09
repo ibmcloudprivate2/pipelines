@@ -19,6 +19,13 @@ or
 python3.7 aspx.py ./uc01/StaffDirectory.aspx "Domain=d1" "domain 1"
 ```
 
+### backup files and rename to specify filename_YYYYMMDD.ext format
+it will make a copy of the file from source folder to backup folder and rename it.
+
+```
+python3.7 bkupfiles.py "./uc01/" "./uc01/backup/" "StaffDirectory.aspx,Web.sitemap"
+```
+
 # Resource
 
 - [create ssh key](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-centos7) to remote server
