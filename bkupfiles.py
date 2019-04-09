@@ -11,7 +11,6 @@ file.ext --> file_yyyymmdd.ext
 
 '''
 
-
 import os
 import shutil
 import argparse
@@ -26,13 +25,13 @@ parser.add_argument('files', type=str, help='list of files separated with comma'
 def toBackupName(srcfile):
     fname = os.path.splitext(srcfile)
     
-    print("*** fname: " , fname[0])
+    # print("*** fname: " , fname[0])
     dateformat = "_"+time.strftime('%Y%m%d')  
 
     return fname[0] + dateformat + fname[1]; 
 
 try:
-    status = False;
+    status = True;
 
     args = parser.parse_args()
 
@@ -51,7 +50,7 @@ try:
     # check folder exist?
     if not os.path.isdir(dest):
         # create the folder
-        print(dest," does not exist")
+        print(dest," does not exist, creating it", file=sys.stdout)
         os.mkdir(dest)
 
     message = None
@@ -60,9 +59,11 @@ try:
     for f in files2backup:
         srcfile = src+f
         print("***",srcfile)
-        if(os.path.isfile('srcfile') == False):
+        exists = os.path.isfile(srcfile)
+        if(exists == False):
             message = srcfile + " not found."
             status = False
+            break
 
         shutil.copy(srcfile, dest)
         # rename the file to filename_yyyymmdd.ext
@@ -71,8 +72,7 @@ try:
 
         # rename the files in backup folder
         os.rename(destfile,toBackupName(destfile))
-
-    status = True
+        print(destfile, "is backup.")
 
 except Exception as e:
     print(e.message, file=sys.stderr)
@@ -80,7 +80,7 @@ except Exception as e:
     
 finally:
     if(status):
-        print("files are backup successfully.", file=sys.stdout)
+        print(files2backup, "are backup successfully.", file=sys.stdout)
         sys.exit(0)
     else:
         print("files are backup with error: "+message, file=sys.stderr)
