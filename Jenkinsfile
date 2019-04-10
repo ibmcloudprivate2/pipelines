@@ -23,10 +23,6 @@ pipeline {
         sh "echo pw: ${params.password}"
       }
     }
-    ansiblePlaybook( 
-        playbook: 'uc01.yaml',
-        inventory: env.INVENTORY_LIST + ','
-    )
     stage('copyfiles') {
       steps {
         sh 'echo copyfiles'
