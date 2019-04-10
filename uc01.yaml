@@ -1,0 +1,24 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: test connection
+      ping:
+      remote_user: root
+    - name : Test backup files script on remote server - positive
+      script : 'bkupfiles.py "/site/" "/site/backup/CHG0031897/" "StaffDirectory.aspx,Web.sitemap"'    
+      args:
+        executable: python3.6
+    - name : Test rollback files script on remote server - positive
+      script : 'rollbkfiles.py "/site/backup/CHG0031897/" "/site/test/" "StaffDirectory_20190409.aspx,Web_20190409.sitemap"'    
+      args:
+        executable: python3.6
+    - name : Test validation aspx script on remot server - positive
+      script : 'aspx.py /site/StaffDirectory.aspx "Domain=d1" "domain 1"'    
+      args:
+        executable: python3.6
+    - name : Test validation sitemap script on remote server - positive
+      script : 'sitemap.py /site/Web.sitemap "directory22" "desc directory22"'    
+      args:
+        executable: python3.6
+    

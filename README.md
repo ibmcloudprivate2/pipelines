@@ -45,6 +45,8 @@ python3.7 rollbkfiles.py "./uc01/backup/" "./uc01/rollback/" "StaffDirectory_201
 
 # Resource
 
+- [Ansible in Jenkins](https://schneide.blog/2018/04/16/ansible-in-jenkins/)
+- [Using passwords](https://schneide.blog/2016/09/12/using-passwords-with-jenkins-ci-server/) with Jenkins CI server
 - [python packaging](https://python-packaging.readthedocs.io/en/latest/minimal.html)
 - [create ssh key](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-centos7) to remote server
 - [Distributing a Python command line](https://gehrcke.de/2014/02/distributing-a-python-command-line-application/) application
@@ -56,6 +58,7 @@ python3.7 rollbkfiles.py "./uc01/backup/" "./uc01/rollback/" "StaffDirectory_201
 - [pyconfigstore](https://pypi.org/project/pyconfig/)
 - [Building Beautiful Command Line Interfaces](https://codeburst.io/building-beautiful-command-line-interfaces-with-python-26c7e1bb54df) with Python
 - [Install Python](https://realpython.com/installing-python/)
+- [SSH access using Jenkins pipeline](https://fatninja.gitlab.io/2018/07/29/ssh-access.html) and Ansible Playbook 
 
 ## CLI tools
 - [click](https://palletsprojects.com/p/click/)
