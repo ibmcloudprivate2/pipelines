@@ -37,3 +37,5 @@
     #   command : 'python3.7 sitemap.py ./uc01/Web.sitemap "Not directory22" "desc directory22"'    
     - name : Test backup files script on local client - positive
       command : 'python3.7 bkupfiles.py "./uc01/" "./uc01/backup/" "StaffDirectory.aspx,Web.sitemap"'    
+    - name : Test backup files script on local client - positive
+      command : 'python3.7 rollbkfiles.py "./uc01/backup/" "./uc01/rollback/" "StaffDirectory_20190410.aspx,Web_20190410.sitemap"'    
