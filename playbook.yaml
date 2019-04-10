@@ -29,9 +29,11 @@
   tasks:
     - name : Test validation aspx script on local client - positive
       command : 'python3.7 aspx.py ./uc01/StaffDirectory.aspx "Domain=d1" "domain 1"'    
-    - name : Test validation aspx script on local client - negative
-      command : 'python3.7 aspx.py ./uc01/StaffDirectory.aspx "Domain=Not d1" "domain 1"'    
+    # - name : Test validation aspx script on local client - negative
+    #   command : 'python3.7 aspx.py ./uc01/StaffDirectory.aspx "Domain=Not d1" "domain 1"'    
     - name : Test validation sitemap script on local client - positive
       command : 'python3.7 sitemap.py ./uc01/Web.sitemap "directory22" "desc directory22"'    
-    - name : Test validation sitemap script on local client - negative
-      command : 'python3.7 sitemap.py ./uc01/Web.sitemap "Not directory22" "desc directory22"'    
+    # - name : Test validation sitemap script on local client - negative
+    #   command : 'python3.7 sitemap.py ./uc01/Web.sitemap "Not directory22" "desc directory22"'    
+    - name : Test backup files script on local client - positive
+      command : 'python3.7 bkupfiles.py "./uc01/" "./uc01/backup/" "StaffDirectory.aspx,Web.sitemap"'    
