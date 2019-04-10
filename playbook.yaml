@@ -22,8 +22,12 @@
         mode: 0644
         backup: yes  
         remote_src: yes
-    - name : Test backup files script on local client - positive
+    - name : Test backup files script on remote server - positive
       script : 'bkupfiles.py "/site/" "/site/backup/CHG0031897/" "StaffDirectory.aspx,Web.sitemap"'    
+      args:
+        executable: python3.6
+    - name : Test rollback files script on remote server - positive
+      script : 'rollbkfiles.py "/site/backup/CHG0031897/" "/site/test/" "StaffDirectory_20190409.aspx,Web_20190409.sitemap"'    
       args:
         executable: python3.6
     
