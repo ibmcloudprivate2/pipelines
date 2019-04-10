@@ -1,18 +1,5 @@
 pipeline {
   agent any
-  parameters {
-    choice(name: 'env',
-      choices: 'dry-run\ndev\ntest\nprod\ndr',
-      description: 'target env:')
-    string(name: 'host',
-      defaultValue: 'host',
-      description: 'remote host IP')
-    string(name: 'user',
-      defaultValue: 'user',
-      description: 'remote host user')
-    password(name: 'password',
-      description: 'remote host password')
-  }  
   stages {
     stage('backupfiles') {
       steps {
@@ -21,6 +8,7 @@ pipeline {
         sh "echo host: ${params.host}"
         sh "echo user: ${params.user}"
         sh "echo pw: ${params.password}"
+        ansiblePlaybook(playbook: 'backupfiles.yaml', inventory: 'hosts')
       }
     }
     stage('copyfiles') {
@@ -62,5 +50,15 @@ pipeline {
         sh 'echo pipeline-completed'
       }
     }
+  }
+  parameters {
+    choice(name: 'env', choices: '''dry-run
+dev
+test
+prod
+dr''', description: 'target env:')
+    string(name: 'host', defaultValue: 'host', description: 'remote host IP')
+    string(name: 'user', defaultValue: 'user', description: 'remote host user')
+    password(name: 'password', description: 'remote host password')
   }
 }
