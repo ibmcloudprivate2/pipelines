@@ -21,7 +21,8 @@ pipeline {
         sh "echo host: ${params.host}"
         sh "echo user: ${params.user}"
         sh "echo pw: ${params.password}"
-        sh 'ansible-playbook -i hosts playbook.yaml'
+        // failed with script.sh: ansible-playbook: not found
+        // sh 'ansible-playbook -i hosts playbook.yaml'
       }
     }
     stage('copyfiles') {
