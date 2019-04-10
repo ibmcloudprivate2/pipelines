@@ -51,6 +51,7 @@ python3.7 rollbkfiles.py "./uc01/backup/" "./uc01/rollback/" "StaffDirectory_201
 - [pytest](https://docs.pytest.org/en/latest/)
 - [pyconfigstore](https://pypi.org/project/pyconfig/)
 - [Building Beautiful Command Line Interfaces](https://codeburst.io/building-beautiful-command-line-interfaces-with-python-26c7e1bb54df) with Python
+- [Install Python](https://realpython.com/installing-python/)
 
 ## CLI tools
 - [click](https://palletsprojects.com/p/click/)
@@ -70,3 +71,36 @@ pip2.7 wheel --wheel-dir=/project/whls/ package
 cd /projects/whls/
 pip install *
 ```
+
+## Install python3 in CentOS
+
+one [method](https://janikarhunen.fi/how-to-install-python-3-6-1-on-centos-7)
+
+```
+sudo yum update
+sudo yum install yum-utils
+sudo yum groupinstall development
+
+sudo yum install https://centos7.iuscommunity.org/ius-release.rpm
+
+sudo yum install python36u
+
+sudo yum install python36u-pip
+sudo yum install python36u-devel
+```
+
+### Creating a virtualenv
+
+```
+python3.6 -m venv venv
+```
+
+### activate it
+
+```
+. venv/bin/activate
+
+pip install [package_name]
+pip install -r requirements.txt
+```
+
