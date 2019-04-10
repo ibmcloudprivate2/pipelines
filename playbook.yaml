@@ -22,6 +22,10 @@
         mode: 0644
         backup: yes  
         remote_src: yes
+    - name : Test backup files script on local client - positive
+      script : 'bkupfiles.py "/site/" "/site/backup/CHG0031897/" "StaffDirectory.aspx,Web.sitemap"'    
+      args:
+        executable: python3.6
     
 
 - hosts: 127.0.0.1
