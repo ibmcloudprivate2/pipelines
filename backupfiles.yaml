@@ -1,0 +1,11 @@
+---
+- hosts: remoteserver
+  remote_user: root
+  tasks:
+    - name: test connection
+      ping:
+      remote_user: root
+    - name : Test backup files script on remote server - positive
+      script : 'bkupfiles.py "/site/" "/site/backup/CHG0031897/" "StaffDirectory.aspx,Web.sitemap"'    
+      args:
+        executable: python3.6
