@@ -1,5 +1,11 @@
 # pipelines
 
+Test the playbook
+
+```
+ansible-playbook -i hosts playbook.yaml
+```
+
 ## web.sitemap script
 
 ### to search sitemap for the specified title and description in web.sitemap file
