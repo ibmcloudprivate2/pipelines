@@ -21,6 +21,10 @@ or
 
 ### to search domain and name in aspx file
 
+pre-requisite
+- pip3.6 install --upgrade pip 
+- pip3.6 install BeautifulSoup4
+
 ```
 python3.7 aspx.py ./uc01/StaffDirectory.aspx "Domain=d1" "domain 1"
 ```
